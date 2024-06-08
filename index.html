@@ -1,0 +1,81 @@
+<html>
+<head>    
+    <title>Currency Conversion app By Anurag Gaiwal</title>
+    <style>
+        *{
+          font-size:50px
+        }
+
+        body {
+          background-color: lightblue;
+          font-family: Arial, sans-serif; 
+        }
+
+        h1 {
+          font-size: 2em; 
+          margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+          padding: 10px;
+          border: 1px solid #ccc;
+          margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+          background-color: #4CAF50; 
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer; 
+        }
+
+        input[type="checkbox"]{
+            width:2%; 
+            height:0.5em;
+        }
+        
+        #msg {    
+          color: #333; 
+        }
+
+        
+        .container{
+            border: 2px solid black;
+            width: 50%;
+        }
+
+    </style>
+</head>
+
+<body>
+<center>
+    <h1>Currency Convertor App</h1>
+    <form onsubmit="show()">
+        <label for="inr">Currency In &#8377 : </label>        
+        <input type="number" step="any" placeholder="Enter Amount in &#8377" id="inr"/>
+        <br/> <br/>
+        <label for="usd">Currency In $: </label>        
+        <input type="number" step="any" placeholder="Enter Amount in $" id="usd"/>
+        <br/> <br/>
+    </form>
+    <script>
+        let inr = document.getElementById("inr");            
+        let usd = document.getElementById("usd");
+        
+        inr.addEventListener("input", ()=>{
+            let r = parseFloat(inr.value);
+            let d = r / 83.526;
+            usd.value = d.toFixed(3);
+        });
+            
+        usd.addEventListener("input", ()=>{
+            let d = parseFloat(usd.value);
+            let ans = d * 83.526;
+      	    inr.value = ans.toFixed(3);
+        });
+    </script>
+</center>
+</body>
+</html>
